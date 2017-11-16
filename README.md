@@ -1,5 +1,8 @@
 # Rduk - message broker
 
+## Translator
+
+## Processor
 
 ## Configuration
 
@@ -10,7 +13,7 @@ broker:
   providers:
     -
       name: amqp
-      type: rduk-message-broker/lib/provider/amqp
+      type: '@rduk/message-broker/lib/provider/amqp'
       address: amqp://user:password@url
   queues:
     sms:
@@ -20,8 +23,8 @@ broker:
   consumers:
     sms:
       queue: sms
-      translator: ~/path/to/translator
-      processor: ~/path/to/processor
+      translator: '@rduk/message-broker/lib/translator/default'
+      processor: '@rduk/message-broker/lib/processor/default'
 ```
 
 ## License and Copyright
