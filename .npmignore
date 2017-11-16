@@ -1,0 +1,6 @@
+.gitignore
+.jshintrc
+
+.vscode
+
+coverage

@@ -1,23 +1,36 @@
 {
-  "name": "rduk-message-broker",
-  "version": "0.0.1",
+  "name": "@rduk/message-broker",
+  "version": "0.1.0",
   "description": "Consume and publish message from and to a broker (AMQP)",
   "main": "lib/index.js",
   "scripts": {
     "lint": "jshint lib/*.js lib/**/*.js",
-    "test": "npm run lint"
+    "pretest": "npm run lint",
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js --report cobertura",
+    "posttest": "istanbul report"
   },
-  "author": "Kim Ung <k.ung@rduk.fr>",
+  "author": "RDUK <tech@rduk.fr>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rd-uk/rduk-message-broker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rd-uk/rduk-message-broker/issues"
+  },
+  "homepage": "https://github.com/rd-uk/rduk-message-broker#readme",
   "dependencies": {
     "amqplib": "0.5.1",
     "bluebird": "3.5.1",
     "generic-pool": "3.2.0",
+    "lodash": "4.17.4",
     "rduk-configuration": "1.1.0",
     "rduk-errors": "1.2.3",
     "rduk-provider": "1.0.0"
   },
   "devDependencies": {
+    "istanbul": "0.4.5",
+    "jasmine": "2.6.0",
     "jshint": "2.9.5"
   }
 }
