@@ -1,5 +1,7 @@
 # Rduk - message broker
 
+Easily publish and consume messages to and from broker
+
 ## Translator
 
 ## Processor
