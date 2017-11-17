@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "jshint lib/*.js lib/**/*.js",
     "pretest": "npm run lint",
-    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js --report cobertura",
-    "posttest": "istanbul report"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
   },
   "author": "RDUK <tech@rduk.fr>",
   "license": "SEE LICENSE IN LICENSE",
