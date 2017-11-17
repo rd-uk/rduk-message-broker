@@ -5,18 +5,40 @@
 'use strict';
 
 var errors = require('rduk-errors');
-var ConsumerSection = require('../lib/configuration/consumerSection');
+var BrokerSubSection = require('../lib/configuration/brokerSubSection');
 var BrokerSection = require('../lib/configuration/brokerSection');
 
 describe('configuration - ', function() {
 
-    describe('consumer section :', function() {
+    describe('broker sub section :', function() {
         
         describe('initialization without options', function() {
             it('should throw an ArgumentNullError', function() {
                 expect(function() {
-                    new ConsumerSection();
+                    new BrokerSubSection();
                 }).toThrowError(errors.ArgumentNullError);
+            });
+        });
+        
+        describe('init method called', function() {
+            it('should init Values', function() {
+                var subSection = new BrokerSubSection({
+                    test: {name: 'test'}
+                });
+
+                expect(subSection).toBeDefined();
+                expect(subSection.test).toBeDefined();
+                expect(subSection.test.name).toBe('test');
+
+                subSection.init({
+                    test: {
+                        name: 'hello',
+                        fake: 'world'
+                    }
+                });
+
+                expect(subSection.test.name).toBe('test');
+                expect(subSection.test.fake).toBeUndefined();
             });
         });
 
