@@ -1,6 +1,10 @@
-# Rduk - message broker
+# RDUK - message broker
+
+[![Codeship Status for rd-uk/rduk-message-broker](https://app.codeship.com/projects/11f4e850-ad51-0135-b44d-2a680d161fa2/status?branch=master)](https://app.codeship.com/projects/257198)
 
 Easily publish and consume messages to and from broker
+
+## Broker
 
 ## Translator
 
@@ -31,4 +35,4 @@ broker:
 
 ## License and Copyright
 
-This module is released under the terms of the [MIT license](./LICENSE).
+SEE [LICENSE](./LICENSE).

@@ -1,7 +1,7 @@
 {
   "name": "@rduk/message-broker",
   "version": "0.1.0",
-  "description": "Consume and publish message from and to a broker (AMQP)",
+  "description": "Easily consume and publish message from and to a broker",
   "main": "lib/index.js",
   "scripts": {
     "lint": "jshint lib/*.js lib/**/*.js",
@@ -10,7 +10,7 @@
     "posttest": "istanbul report"
   },
   "author": "RDUK <tech@rduk.fr>",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rd-uk/rduk-message-broker.git"
@@ -23,7 +23,6 @@
     "amqplib": "0.5.1",
     "bluebird": "3.5.1",
     "generic-pool": "3.2.0",
-    "lodash": "4.17.4",
     "rduk-configuration": "1.1.0",
     "rduk-errors": "1.2.3",
     "rduk-provider": "1.0.0"
