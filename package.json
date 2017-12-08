@@ -1,6 +1,6 @@
 {
   "name": "@rduk/message-broker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily consume and publish message from and to a broker",
   "main": "lib/index.js",
   "scripts": {
