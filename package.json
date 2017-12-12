@@ -9,7 +9,7 @@
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
   },
   "author": "RDUK <tech@rduk.fr>",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rd-uk/rduk-message-broker.git"
