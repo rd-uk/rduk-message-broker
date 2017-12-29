@@ -4,8 +4,6 @@
   "description": "Easily consume and publish message from and to a broker",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "jshint lib/*.js lib/**/*.js",
-    "pretest": "npm run lint",
     "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
   },
   "author": "RDUK <tech@rduk.fr>",
@@ -27,7 +25,6 @@
   },
   "devDependencies": {
     "istanbul": "0.4.5",
-    "jasmine": "2.8.0",
-    "jshint": "2.9.5"
+    "jasmine": "2.8.0"
   }
 }
