@@ -24,7 +24,7 @@
 
 'use strict';
 
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 var BaseTranslator = require('../lib/translator/base');
 var DefaultTranslator = require('../lib/translator/default');
 var JSONTranslator = require('../lib/translator/json');
@@ -80,8 +80,6 @@ describe('Translator', function() {
                     translator.translate('{"error"}')
                         .catch(function(e) {
                             expect(e).toBeDefined();
-                        })
-                        .finally(function() {
                             done();
                         });
                 });

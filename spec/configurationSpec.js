@@ -24,7 +24,7 @@
 
 'use strict';
 
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 var BrokerSubSection = require('../lib/configuration/brokerSubSection');
 var BrokerSection = require('../lib/configuration/brokerSection');
 
