@@ -24,7 +24,7 @@
 
 'use strict';
 
-var errors = require('rduk-errors');
+var errors = require('@rduk/errors');
 var BaseProcessor = require('../lib/processor/base');
 var DefaultProcessor = require('../lib/processor/default');
 var DefaultTranslator = require('../lib/translator/default');
