@@ -68,7 +68,7 @@ describe('Translator', function() {
                     var translator = new JSONTranslator();
                     translator.translate('{"message":"hello"}')
                         .then(function(result) {
-                            test(result.message, 'hello', done)
+                            test(result.message, 'hello', done);
                         });
                 });
             });

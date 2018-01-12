@@ -21,8 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
- 
-'use strict'
+
+'use strict';
 
 module.exports = function(value, expected, cb) {
     expect(value).toBe(expected);
