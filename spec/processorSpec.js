@@ -28,7 +28,7 @@ const errors = require('@rduk/errors');
 const BaseProcessor = require('../lib/processor/base');
 const DefaultProcessor = require('../lib/processor/default');
 const DefaultTranslator = require('../lib/translator/default');
-const test = require('./helpers/test');
+const test = require('./helpers/testHelper');
 
 describe('Processor', function() {
 

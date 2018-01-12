@@ -28,7 +28,7 @@ const errors = require('@rduk/errors');
 const BaseTranslator = require('../lib/translator/base');
 const DefaultTranslator = require('../lib/translator/default');
 const JSONTranslator = require('../lib/translator/json');
-const test = require('./helpers/test');
+const test = require('./helpers/testHelper');
 
 describe('Translator', function() {
 
