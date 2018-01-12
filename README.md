@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rd-uk/rduk-message-broker.svg?branch=master)](https://travis-ci.org/rd-uk/rduk-message-broker)
 [![Coverage Status](https://coveralls.io/repos/github/rd-uk/rduk-message-broker/badge.svg?branch=master)](https://coveralls.io/github/rd-uk/rduk-message-broker?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3d55512fbebfcd4bb1bf/maintainability)](https://codeclimate.com/repos/5a0eb2ce2be9ce02db0015e2/maintainability)
+[![bitHound Overall Score](https://www.bithound.io/github/rd-uk/rduk-message-broker/badges/score.svg)](https://www.bithound.io/github/rd-uk/rduk-message-broker)
 
 
 Easily publish and consume messages to and from broker
