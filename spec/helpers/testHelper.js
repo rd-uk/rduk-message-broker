@@ -24,32 +24,7 @@
 
 'use strict';
 
-const errors = require('@rduk/errors');
-
-class BrokerSubSection {
-    constructor(options, brokerSection) {
-        if (!options) {
-            errors.throwArgumentNullError('options');
-        }
-
-        this.initialized = false;
-        this.preInit(options, brokerSection);
-        this.init(options, brokerSection);
-    }
-    preInit(options, brokerSection) {}
-    init(options, brokerSection) {
-        if (this.initialized) {
-            return;
-        }
-
-        for (let prop in options) {
-            if (!this.hasOwnProperty(prop)) {
-                this[prop] = options[prop];
-            }
-        }
-
-        this.initialized = true;
-    }
-}
-
-module.exports = BrokerSubSection;
+module.exports = function(value, expected, cb) {
+    expect(value).toBe(expected);
+    cb();
+};

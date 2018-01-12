@@ -1,18 +1,18 @@
 /**
  * MIT License
- * 
+ *
  * Copyright (c) 2017 RDUK <tech@rduk.fr>, All rights reserved.
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,15 +24,16 @@
 
 'use strict';
 
-var errors = require('@rduk/errors');
-var BaseProcessor = require('../lib/processor/base');
-var DefaultProcessor = require('../lib/processor/default');
-var DefaultTranslator = require('../lib/translator/default');
+const errors = require('@rduk/errors');
+const BaseProcessor = require('../lib/processor/base');
+const DefaultProcessor = require('../lib/processor/default');
+const DefaultTranslator = require('../lib/translator/default');
+const test = require('./helpers/testHelper');
 
 describe('Processor', function() {
 
     describe('Base', function() {
-        
+
         describe('initialization without argument', function() {
             it('should throw an ArgumentError', function() {
                 expect(function() {
@@ -40,7 +41,7 @@ describe('Processor', function() {
                 }).toThrowError(errors.ArgumentError);
             });
         });
-        
+
         describe('initialization with bad argument', function() {
             it('should throw an ArgumentError', function() {
                 expect(function() {
@@ -52,7 +53,7 @@ describe('Processor', function() {
         describe('method run called', function() {
             it('should throw a NotImplementedError', function() {
                 expect(function() {
-                    var processor = new BaseProcessor(new DefaultTranslator());
+                    let processor = new BaseProcessor(new DefaultTranslator());
                     processor.run();
                 }).toThrowError(errors.NotImplementedError);
             });
@@ -81,8 +82,7 @@ describe('Processor', function() {
                 it('should success', function(done) {
                     processor.run({content: 'test'})
                         .then(function(result) {
-                            expect(result).toBe('test');
-                            done();
+                            test(result, 'test', done);
                         });
                 });
             });

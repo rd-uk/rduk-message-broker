@@ -1,18 +1,18 @@
 /**
  * MIT License
- * 
- * Copyright (c) 2017 RDUK <tech@rduk.fr>, All rights reserved.
- * 
+ *
+ * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,15 +24,16 @@
 
 'use strict';
 
-var errors = require('@rduk/errors');
-var BaseTranslator = require('../lib/translator/base');
-var DefaultTranslator = require('../lib/translator/default');
-var JSONTranslator = require('../lib/translator/json');
+const errors = require('@rduk/errors');
+const BaseTranslator = require('../lib/translator/base');
+const DefaultTranslator = require('../lib/translator/default');
+const JSONTranslator = require('../lib/translator/json');
+const test = require('./helpers/testHelper');
 
 describe('Translator', function() {
 
     describe('Base', function() {
-        
+
         describe('method translate called', function() {
             it('should throw a NotImplementedError', function() {
                 expect(function() {
@@ -45,14 +46,13 @@ describe('Translator', function() {
     });
 
     describe('Default', function() {
-        
+
         describe('method translate called', function() {
             it('should success', function(done) {
                 var translator = new DefaultTranslator();
                 translator.translate('test')
                     .then(function(result) {
-                        expect(result).toBe('test');
-                        done();
+                        test(result, 'test', done);
                     });
             });
         });
@@ -60,7 +60,7 @@ describe('Translator', function() {
     });
 
     describe('JSON', function() {
-        
+
         describe('method translate called', function() {
 
             describe('with well format json', function() {
@@ -68,8 +68,7 @@ describe('Translator', function() {
                     var translator = new JSONTranslator();
                     translator.translate('{"message":"hello"}')
                         .then(function(result) {
-                            expect(result.message).toBe('hello');
-                            done();
+                            test(result.message, 'hello', done);
                         });
                 });
             });
