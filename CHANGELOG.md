@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - update README
 
 ## 2.0.0 - 2018-01-12
-### Added
 - start using changelog
 ### Changed
 - use es6 syntax
