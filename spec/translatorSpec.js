@@ -63,7 +63,7 @@ describe('Translator', function() {
 
         describe('method translate called', function() {
 
-            describe('with well format json', function() {
+            describe('with well formed json', function() {
                 it('should resolve Promise', function(done) {
                     var translator = new JSONTranslator();
                     translator.translate('{"message":"hello"}')
@@ -73,7 +73,7 @@ describe('Translator', function() {
                 });
             });
 
-            describe('with well format json', function() {
+            describe('with not well formed json', function() {
                 it('should reject Promise', function(done) {
                     var translator = new JSONTranslator();
                     translator.translate('{"error"}')
