@@ -22,69 +22,62 @@
  * SOFTWARE.
  */
 
-'use strict';
+ /* eslint-env jasmine */
 
-const errors = require('@rduk/errors');
-const BaseTranslator = require('../lib/translator/base');
-const DefaultTranslator = require('../lib/translator/default');
-const JSONTranslator = require('../lib/translator/json');
-const test = require('./helpers/testHelper');
+'use strict'
 
-describe('Translator', function() {
+const errors = require('@rduk/errors')
+const BaseTranslator = require('../lib/translator/base')
+const DefaultTranslator = require('../lib/translator/default')
+const JSONTranslator = require('../lib/translator/json')
+const test = require('./helpers/testHelper')
 
-    describe('Base', function() {
+describe('Translator', function () {
+  describe('Base', function () {
+    describe('method translate called', function () {
+      it('should throw a NotImplementedError', function () {
+        expect(function () {
+          var translator = new BaseTranslator()
+          translator.translate('test')
+        }).toThrowError(errors.NotImplementedError)
+      })
+    })
+  })
 
-        describe('method translate called', function() {
-            it('should throw a NotImplementedError', function() {
-                expect(function() {
-                    var translator = new BaseTranslator();
-                    translator.translate('test');
-                }).toThrowError(errors.NotImplementedError);
-            });
-        });
+  describe('Default', function () {
+    describe('method translate called', function () {
+      it('should success', function (done) {
+        var translator = new DefaultTranslator()
+        translator.translate('test')
+                    .then(function (result) {
+                      test(result, 'test', done)
+                    })
+      })
+    })
+  })
 
-    });
+  describe('JSON', function () {
+    describe('method translate called', function () {
+      describe('with well formed json', function () {
+        it('should resolve Promise', function (done) {
+          var translator = new JSONTranslator()
+          translator.translate('{"message":"hello"}')
+                        .then(function (result) {
+                          test(result.message, 'hello', done)
+                        })
+        })
+      })
 
-    describe('Default', function() {
-
-        describe('method translate called', function() {
-            it('should success', function(done) {
-                var translator = new DefaultTranslator();
-                translator.translate('test')
-                    .then(function(result) {
-                        test(result, 'test', done);
-                    });
-            });
-        });
-
-    });
-
-    describe('JSON', function() {
-
-        describe('method translate called', function() {
-
-            describe('with well formed json', function() {
-                it('should resolve Promise', function(done) {
-                    var translator = new JSONTranslator();
-                    translator.translate('{"message":"hello"}')
-                        .then(function(result) {
-                            test(result.message, 'hello', done);
-                        });
-                });
-            });
-
-            describe('with not well formed json', function() {
-                it('should reject Promise', function(done) {
-                    var translator = new JSONTranslator();
-                    translator.translate('{"error"}')
-                        .catch(function(e) {
-                            expect(e).toBeDefined();
-                            done();
-                        });
-                });
-            });
-        });
-
-    });
-
-});
+      describe('with not well formed json', function () {
+        it('should reject Promise', function (done) {
+          var translator = new JSONTranslator()
+          translator.translate('{"error"}')
+                        .catch(function (e) {
+                          expect(e).toBeDefined()
+                          done()
+                        })
+        })
+      })
+    })
+  })
+})

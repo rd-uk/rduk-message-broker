@@ -22,9 +22,11 @@
  * SOFTWARE.
  */
 
-'use strict';
+ /* eslint-env jasmine */
 
-module.exports = function(value, expected, cb) {
-    expect(value).toBe(expected);
-    cb();
-};
+'use strict'
+
+module.exports = function (value, expected, cb) {
+  expect(value).toBe(expected)
+  cb()
+}

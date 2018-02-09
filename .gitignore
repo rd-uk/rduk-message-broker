@@ -1,4 +1,8 @@
 node_modules
 coverage
 
+# ignore code editor folder
 .vscode
+
+# ignore specific local files
+.local
