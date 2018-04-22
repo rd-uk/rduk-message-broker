@@ -1,6 +1,6 @@
 {
   "name": "@rduk/message-broker",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "Easily consume and publish message from and to a broker",
   "engines": {
     "node": ">=6.4.0"
