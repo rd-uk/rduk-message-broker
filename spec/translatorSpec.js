@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
- /* eslint-env jasmine */
+/* eslint-env jasmine */
 
 'use strict'
 
@@ -49,9 +49,9 @@ describe('Translator', function () {
       it('should success', function (done) {
         var translator = new DefaultTranslator()
         translator.translate('test')
-                    .then(function (result) {
-                      test(result, 'test', done)
-                    })
+          .then(function (result) {
+            test(result, 'test', done)
+          })
       })
     })
   })
@@ -62,9 +62,9 @@ describe('Translator', function () {
         it('should resolve Promise', function (done) {
           var translator = new JSONTranslator()
           translator.translate('{"message":"hello"}')
-                        .then(function (result) {
-                          test(result.message, 'hello', done)
-                        })
+            .then(function (result) {
+              test(result.message, 'hello', done)
+            })
         })
       })
 
@@ -72,10 +72,10 @@ describe('Translator', function () {
         it('should reject Promise', function (done) {
           var translator = new JSONTranslator()
           translator.translate('{"error"}')
-                        .catch(function (e) {
-                          expect(e).toBeDefined()
-                          done()
-                        })
+            .catch(function (e) {
+              expect(e).toBeDefined()
+              done()
+            })
         })
       })
     })

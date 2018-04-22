@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>.
+ * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>, All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,35 +22,20 @@
  * SOFTWARE.
  */
 
-'use strict'
-
-const configuration = require('@rduk/configuration')
-const provider = require('./provider')
-const BrokerSection = require('./configuration/brokerSection')
-
-class Broker {
-  constructor () {
-    this.config = configuration.load().getSection('broker', BrokerSection)
+class MockChannel {
+  constructor (msg) {
+    this.msg = msg
   }
-  publish (to, routingKey, content, options) {
-    return new Promise((resolve, reject) => {
-      let exchange
-      try {
-        exchange = this.config.exchanges.get(to)
-        resolve(exchange)
-      } catch (e) {
-        reject(e)
-      }
-    }).then(function (exchange) {
-      return provider
-        .getInstance()
-        .publish(exchange, routingKey, content, options)
+  assertQueue () {
+    return Promise.resolve({})
+  }
+  consume (queue, cb) {
+    [{content: this.msg}].forEach(msg => {
+      cb(msg)
     })
   }
-  consume (name, ...args) {
-    let consumer = this.config.consumers.get(name)
-    provider.getInstance().consume(consumer, ...args)
-  }
+  ack () {}
+  nack () {}
 }
 
-module.exports = new Broker()
+module.exports = MockChannel

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
- /* eslint-env jasmine */
+/* eslint-env jasmine */
 
 'use strict'
 
@@ -79,9 +79,9 @@ describe('Processor', function () {
       describe('correctly', function () {
         it('should success', function (done) {
           processor.run({content: 'test'})
-                        .then(function (result) {
-                          test(result, 'test', done)
-                        })
+            .then(function (result) {
+              test(result, 'test', done)
+            })
         })
       })
     })

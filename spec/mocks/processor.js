@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>.
+ * Copyright (c) 2016 - 2018 RDUK <tech@rduk.fr>, All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,35 +22,16 @@
  * SOFTWARE.
  */
 
-'use strict'
+const BaseProcessor = require('../../lib/processor/base')
 
-const configuration = require('@rduk/configuration')
-const provider = require('./provider')
-const BrokerSection = require('./configuration/brokerSection')
+class MockProcessor extends BaseProcessor {
+  run (msg) {
+    if (msg.content === 'error') {
+      return Promise.reject(new Error())
+    }
 
-class Broker {
-  constructor () {
-    this.config = configuration.load().getSection('broker', BrokerSection)
-  }
-  publish (to, routingKey, content, options) {
-    return new Promise((resolve, reject) => {
-      let exchange
-      try {
-        exchange = this.config.exchanges.get(to)
-        resolve(exchange)
-      } catch (e) {
-        reject(e)
-      }
-    }).then(function (exchange) {
-      return provider
-        .getInstance()
-        .publish(exchange, routingKey, content, options)
-    })
-  }
-  consume (name, ...args) {
-    let consumer = this.config.consumers.get(name)
-    provider.getInstance().consume(consumer, ...args)
+    return Promise.resolve()
   }
 }
 
-module.exports = new Broker()
+module.exports = MockProcessor
