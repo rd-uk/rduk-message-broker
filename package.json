@@ -1,6 +1,6 @@
 {
   "name": "@rduk/message-broker",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Easily consume and publish message from and to a broker",
   "engines": {
     "node": ">=6.4.0"
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/rd-uk/rduk-message-broker#readme",
   "dependencies": {
-    "amqplib": "0.5.2",
     "extend": "3.0.1",
     "generic-pool": "3.4.2"
   },
@@ -43,6 +42,7 @@
     "@rduk/configuration": "2.x",
     "@rduk/errors": "1.x",
     "@rduk/logger": "1.x",
-    "@rduk/provider": "^3.1.0"
+    "@rduk/provider": "3.x",
+    "amqplib": "^0.5.2"
   }
 }

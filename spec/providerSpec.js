@@ -68,7 +68,8 @@ describe('Provider', function () {
             createChannel: () => ({
               name: 'channel',
               assertExchange: () => (Promise.resolve({})),
-              publish: () => ('published')
+              publish: () => ('published'),
+              close: () => Promise.resolve(true)
             })
           })),
           release: () => {}
